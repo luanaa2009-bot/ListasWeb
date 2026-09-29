@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4c – fixed, sticky e z-index</title>
+<style>
+  body{font-family:Arial,sans-serif;max-width:800px;margin:0 auto;padding:0 1rem 1rem}
+  .fixo{position:fixed;right:15px;bottom:15px;background:#e63946;color:#fff;padding:10px;z-index:10}
+  .grudento{position:sticky;top:0;background:#ffd166;padding:10px;z-index:5}
+  .texto{height:1200px;background:linear-gradient(#f1faee,#a8dadc)}
+  .sobrepoe{position:absolute;top:120px;left:60px;width:140px;height:80px;background:#1d3557;color:#fff}
+  .sobrepoe.dois{top:150px;left:100px;background:#e76f51;z-index:2}
+</style>
+</head>
+<body>
+<div class="fixo">position: fixed</div>
+<h1>position: fixed, sticky e z-index</h1>
+<div class="grudento">position: sticky – cola no topo ao rolar</div>
+<div class="sobrepoe">z-index padrão</div>
+<div class="sobrepoe dois">z-index: 2 (fica na frente)</div>
+<div class="texto"><p>Role a página para ver o efeito.</p></div>
+<h2>Explicação</h2>
+<p><b>fixed:</b> posicionado em relação à janela do navegador e não se move com a rolagem. O aviso vermelho fica sempre no canto inferior direito.</p>
+<p><b>sticky:</b> funciona como relative até o elemento atingir o limite definido (top:0); daí em diante fica "grudado" enquanto o pai estiver visível.</p>
+<p><b>z-index:</b> define a ordem de empilhamento de elementos posicionados. Quanto maior o valor, mais à frente. O laranja tem z-index 2 e cobre o azul.</p>
+<p>Referência: MDN Web Docs. <em>position</em> e <em>z-index</em>. 2025. https://developer.mozilla.org/pt-BR/docs/Web/CSS/z-index</p>
+</body>
+</html>

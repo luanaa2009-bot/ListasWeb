@@ -1,0 +1,2 @@
+Lista CSS 1 – ver comentários/explicações dentro de cada arquivo.
+Referências: MDN Web Docs (2025); W3C, Selectors Level 4.

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atividade 1 – Seletores CSS</title>
+<style>
+  body{font-family:Georgia,serif;max-width:800px;margin:2rem auto;padding:0 1rem;line-height:1.6}
+  code{background:#eee;padding:1px 5px;border-radius:3px}
+  table{border-collapse:collapse;width:100%}
+  th,td{border:1px solid #999;padding:.5rem;text-align:left}
+</style>
+</head>
+<body>
+<h1>Atividade 1 – Seletores CSS</h1>
+<p>Joguei todos os níveis do CSS Diner (<a href="https://flukeout.github.io/">flukeout.github.io</a>). Abaixo, um resumo dos seletores que usei no jogo.</p>
+<table>
+<tr><th>Seletor</th><th>Exemplo</th><th>O que faz</th></tr>
+<tr><td>Tipo</td><td><code>plate</code></td><td>Seleciona todos os elementos com aquela tag.</td></tr>
+<tr><td>Classe</td><td><code>.small</code></td><td>Seleciona elementos com aquele valor em <code>class</code>.</td></tr>
+<tr><td>ID</td><td><code>#fancy</code></td><td>Seleciona o único elemento com aquele <code>id</code>.</td></tr>
+<tr><td>Descendente</td><td><code>plate apple</code></td><td>Pega <code>apple</code> em qualquer nível dentro de <code>plate</code>.</td></tr>
+<tr><td>Filho direto</td><td><code>plate &gt; apple</code></td><td>Pega só filhos imediatos.</td></tr>
+<tr><td>Irmão adjacente</td><td><code>plate + apple</code></td><td>Pega o elemento que vem logo depois de outro, no mesmo nível.</td></tr>
+<tr><td>Irmãos gerais</td><td><code>plate ~ pickle</code></td><td>Pega todos os irmãos posteriores.</td></tr>
+<tr><td>Agrupamento</td><td><code>plate, bento</code></td><td>Aplica a regra a vários seletores ao mesmo tempo.</td></tr>
+<tr><td>Universal</td><td><code>*</code></td><td>Seleciona tudo.</td></tr>
+<tr><td>Primeiro filho</td><td><code>:first-child</code></td><td>Elemento que é o primeiro dentro do pai.</td></tr>
+<tr><td>Último filho</td><td><code>:last-child</code></td><td>Elemento que é o último dentro do pai.</td></tr>
+<tr><td>Enésimo filho</td><td><code>:nth-child(2)</code>, <code>:nth-of-type(2n)</code></td><td>Seleciona por posição ou fórmula.</td></tr>
+<tr><td>Único do tipo</td><td><code>:only-child</code>, <code>:only-of-type</code></td><td>Elemento sem irmãos (ou sem irmãos do mesmo tipo).</td></tr>
+<tr><td>Vazio</td><td><code>:empty</code></td><td>Elemento sem filhos.</td></tr>
+<tr><td>Negação</td><td><code>:not(.small)</code></td><td>Exclui elementos que casem com o seletor interno.</td></tr>
+<tr><td>Atributo</td><td><code>[for]</code>, <code>[type="text"]</code></td><td>Seleciona pela presença ou valor de um atributo.</td></tr>
+<tr><td>Atributo (prefixo/sufixo/contém)</td><td><code>[a^="x"]</code>, <code>[a$="x"]</code>, <code>[a*="x"]</code></td><td>Compara o começo, o fim ou parte do valor do atributo.</td></tr>
+</table>
+
+<h2>Referências</h2>
+<ul>
+<li>MDN Web Docs. <em>CSS selectors</em>. Mozilla, 2025. Disponível em: https://developer.mozilla.org/pt-BR/docs/Web/CSS/CSS_selectors</li>
+<li>W3C. <em>Selectors Level 4</em>. Disponível em: https://www.w3.org/TR/selectors-4/</li>
+<li>Fluke Out. <em>CSS Diner</em>. Disponível em: https://flukeout.github.io/</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5 – Perfil</title>
+<style>
+  body{font-family:Arial,sans-serif;background:#e9ecef;display:flex;justify-content:center;padding:2rem}
+  .card{position:relative;width:320px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.2);padding-bottom:20px}
+  .capa{height:110px;background:linear-gradient(135deg,#457b9d,#1d3557)}
+  .foto{position:absolute;top:60px;left:50%;transform:translateX(-50%);width:100px;height:100px;border-radius:50%;background:#ffd166;border:4px solid #fff;display:flex;align-items:center;justify-content:center;font-size:2.5rem}
+  .selo{position:absolute;top:10px;right:10px;background:#e63946;color:#fff;font-size:.75rem;padding:3px 8px;border-radius:10px}
+  .info{margin-top:60px;text-align:center;padding:0 16px}
+  .info h2{margin:.2rem 0}
+  .info p{color:#555;margin:.3rem 0}
+  .numeros{display:flex;justify-content:space-around;margin:16px 0}
+  .numeros div{text-align:center}
+  .numeros b{display:block;font-size:1.2rem}
+  .botoes{display:flex;gap:8px;justify-content:center}
+  .botoes a{display:inline-block;padding:8px 18px;border-radius:20px;text-decoration:none;background:#1d3557;color:#fff}
+  .botoes a.sec{background:#fff;color:#1d3557;border:1px solid #1d3557}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="capa"></div>
+  <span class="selo">Online</span>
+  <div class="foto">🙂</div>
+  <div class="info">
+    <h2>Nome Sobrenome</h2>
+    <p>Estudante de Desenvolvimento de Sistemas – IFSC</p>
+    <p>Gaspar, SC</p>
+  </div>
+  <div class="numeros">
+    <div><b>128</b>Posts</div><div><b>1,2k</b>Seguidores</div><div><b>310</b>Seguindo</div>
+  </div>
+  <div class="botoes"><a href="#">Seguir</a><a class="sec" href="#">Mensagem</a></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+/* style.css - usado por todas as páginas */
+body {
+  background-color: #f4f6f8;
+  color: #222;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+h1, h2, h3 { color: #1a4d7a; }
+img { max-width: 100%; height: auto; border-radius: 6px; }
+mark { background-color: #ffe66d; }
+
+nav { background: #1a4d7a; padding: 10px; border-radius: 6px; margin-bottom: 20px; }
+nav a { color: #fff; text-decoration: none; margin-right: 15px; padding: 4px 8px; border-radius: 4px; }
+a { color: #1a4d7a; }
+a:hover { color: #c0392b; text-decoration: underline; }
+nav a:hover { background: #fff; color: #1a4d7a; text-decoration: none; }
+
+table { border-collapse: collapse; width: 100%; margin: 15px 0; background: #fff; }
+th, td { border: 1px solid #999; padding: 8px; text-align: left; }
+th { background: #1a4d7a; color: #fff; }
+caption { font-weight: bold; margin-bottom: 6px; }
+tfoot td { background: #e8eef3; font-style: italic; }
+
+form { background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #ccc; }
+label { display: block; margin-top: 12px; font-weight: bold; }
+input, select, textarea {
+  width: 100%; padding: 10px; margin-top: 4px; box-sizing: border-box;
+  border: 1px solid #999; border-radius: 8px; font-family: Arial, sans-serif;
+}
+button {
+  margin-top: 16px; padding: 10px 24px; border: none; border-radius: 8px;
+  background-color: #1a4d7a; color: #fff; font-size: 1rem; cursor: pointer;
+}
+button:hover { background-color: #c0392b; }
+.aviso { background: #fff3cd; border-left: 5px solid #f0ad4e; padding: 10px; margin-bottom: 15px; }
+pre { background: #272822; color: #f8f8f2; padding: 12px; overflow-x: auto; border-radius: 6px; }

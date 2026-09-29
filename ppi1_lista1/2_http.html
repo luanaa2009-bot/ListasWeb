@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Protocolo HTTP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Autor: Seu Nome | Data: 29/09/2026 -->
+  <nav>
+    <a href="1.html">Início</a>
+    <a href="3_tabela_uf.html">Estados</a>
+    <a href="4_curriculo.html">Currículo</a>
+    <a href="4_contato.html">Contato</a>
+  </nav>
+
+  <h1>Protocolo HTTP</h1>
+  <p>
+    <strong>HTTP</strong> (HyperText Transfer Protocol) é o protocolo que define como o
+    navegador (cliente) pede recursos a um servidor e como o servidor responde.
+    Funciona no modelo <em>requisição e resposta</em>: o cliente envia uma <em>request</em>
+    e o servidor devolve uma <em>response</em>. HTTPS é o HTTP com criptografia (TLS).
+  </p>
+
+  <h2>Como funciona</h2>
+  <ol>
+    <li>O usuário digita uma URL no navegador.</li>
+    <li>O navegador descobre o IP do servidor (DNS) e abre uma conexão.</li>
+    <li>Envia uma requisição HTTP (ex.: GET /index.html).</li>
+    <li>O servidor responde com um código de status e o conteúdo.</li>
+    <li>O navegador renderiza a página.</li>
+  </ol>
+
+  <h2>Métodos principais</h2>
+  <table>
+    <tr><th>Método</th><th>Uso</th></tr>
+    <tr><td>GET</td><td>Buscar um recurso</td></tr>
+    <tr><td>POST</td><td>Enviar dados (ex.: formulário)</td></tr>
+    <tr><td>PUT</td><td>Atualizar um recurso</td></tr>
+    <tr><td>DELETE</td><td>Remover um recurso</td></tr>
+  </table>
+
+  <h2>Requisição capturada (F12 &gt; Rede)</h2>
+  <!-- Troque pelas suas capturas de tela -->
+  <img src="img/request.png" alt="Captura dos Request Headers">
+  <pre>GET / HTTP/1.1
+Host: www.ifsc.edu.br
+User-Agent: Mozilla/5.0 ...
+Accept: text/html
+Accept-Language: pt-BR
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive</pre>
+
+  <h3>Campos do request</h3>
+  <dl>
+    <dt>GET / HTTP/1.1</dt><dd>Método, caminho e versão do protocolo.</dd>
+    <dt>Host</dt><dd>Domínio do servidor de destino.</dd>
+    <dt>User-Agent</dt><dd>Identifica o navegador e o sistema operacional.</dd>
+    <dt>Accept</dt><dd>Tipos de conteúdo que o cliente aceita.</dd>
+    <dt>Accept-Language</dt><dd>Idiomas preferidos.</dd>
+    <dt>Accept-Encoding</dt><dd>Compressões aceitas.</dd>
+    <dt>Connection</dt><dd>Se a conexão continua aberta após a resposta.</dd>
+  </dl>
+
+  <h2>Resposta capturada</h2>
+  <img src="img/response.png" alt="Captura dos Response Headers">
+  <pre>HTTP/1.1 200 OK
+Content-Type: text/html; charset=UTF-8
+Content-Length: 12345
+Server: nginx
+Date: Tue, 29 Sep 2026 12:00:00 GMT
+Cache-Control: max-age=3600</pre>
+
+  <h3>Campos do response</h3>
+  <dl>
+    <dt>200 OK</dt><dd>Código de status: sucesso.</dd>
+    <dt>Content-Type</dt><dd>Tipo e codificação do conteúdo enviado.</dd>
+    <dt>Content-Length</dt><dd>Tamanho do corpo em bytes.</dd>
+    <dt>Server</dt><dd>Software do servidor.</dd>
+    <dt>Date</dt><dd>Data e hora da resposta.</dd>
+    <dt>Cache-Control</dt><dd>Regras de cache no navegador.</dd>
+  </dl>
+
+  <h3>Códigos de status</h3>
+  <ul>
+    <li><b>2xx</b>: sucesso (200 OK)</li>
+    <li><b>3xx</b>: redirecionamento (301, 302)</li>
+    <li><b>4xx</b>: erro do cliente (404 Not Found)</li>
+    <li><b>5xx</b>: erro do servidor (500)</li>
+  </ul>
+</body>
+</html>

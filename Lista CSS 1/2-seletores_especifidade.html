@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Exemplo especificidade de seletores</title>
+<style>
+  /*regra 1*/ li{color:red;}
+  /*regra 2*/ .churras{color:green;}
+  /*regra 3*/ .fruta{color:gray}
+  /*regra 4*/ li+li.churras{color: black;}
+  /*regra 5*/ .churras[draggable="true"]{color: magenta;}
+  /*regra 6*/ #lip1,#lip2,#lip3{color:blue}
+  /*regra 7*/ #lip3.fruta{color:orange}
+  /*regra 8*/ ol>li.churras#lip5{color:purple}
+
+  /* estilo da explicação (não usa li nem as classes acima) */
+  .explica{font-family:Arial,sans-serif;max-width:800px;line-height:1.5;margin-top:2rem}
+  .explica table{border-collapse:collapse;width:100%}
+  .explica th,.explica td{border:1px solid #999;padding:.4rem;text-align:left}
+</style>
+</head>
+<body>
+<ol>
+<!--item 1--> <li id="lip0">Abacaxi</li>
+<!--item 2--> <li           class="fruta">Melão</li>
+<!--item 3--> <li id="lip2" class="fruta">Pera</li>
+<!--item 4--> <li id="lip3" class="fruta">Uva</li>
+<!--item 5--> <li id="lip4" class="fruta">Maçã</li>
+<!--item 6--> <li           class="churras">Carne</li>
+<!--item 7--> <li           class="churras">Linguiça</li>
+<!--item 8--> <li id="lip7" class="churras" draggable="true">Pão de alho</li>
+</ol>
+
+<div class="explica">
+<h2>Explicação</h2>
+<p>A especificidade é contada em três colunas: (ids, classes/atributos/pseudo-classes, tags). Compara-se da esquerda para a direita e vence a maior. Em caso de empate, vale a regra escrita por último (MDN Web Docs, 2025).</p>
+<table>
+<tr><th>Item</th><th>Regras que casam</th><th>Cor</th><th>Por quê</th></tr>
+<tr><td>1 – Abacaxi</td><td>1</td><td>vermelho</td><td>Só a regra 1 (<code>li</code>) se aplica. A regra 6 lista <code>#lip1</code>, <code>#lip2</code> e <code>#lip3</code>, mas este item tem <code>id="lip0"</code>.</td></tr>
+<tr><td>2 – Melão</td><td>1, 3</td><td>cinza</td><td><code>.fruta</code> (0,1,0) é mais específico que <code>li</code> (0,0,1).</td></tr>
+<tr><td>3 – Pera</td><td>1, 3, 6</td><td>azul</td><td><code>#lip2</code> (1,0,0) vence qualquer regra só com classe ou tag.</td></tr>
+<tr><td>4 – Uva</td><td>1, 3, 6, 7</td><td>laranja</td><td><code>#lip3.fruta</code> vale (1,1,0), maior que <code>#lip3</code> sozinho (1,0,0).</td></tr>
+<tr><td>5 – Maçã</td><td>1, 3</td><td>cinza</td><td>O id é <code>lip4</code>, que não aparece na regra 6. Fica só a classe <code>.fruta</code>.</td></tr>
+<tr><td>6 – Carne</td><td>1, 2, 4</td><td>preto</td><td>A regra 4 (<code>li+li.churras</code>, 0,1,2) casa porque há um <code>li</code> imediatamente antes. Vence a regra 2 (0,1,0) pelas duas tags a mais.</td></tr>
+<tr><td>7 – Linguiça</td><td>1, 2, 4</td><td>preto</td><td>Mesmo raciocínio do item 6.</td></tr>
+<tr><td>8 – Pão de alho</td><td>1, 2, 4, 5</td><td>magenta</td><td>A regra 5 (<code>.churras[draggable="true"]</code>) conta classe + atributo = (0,2,0), que supera a regra 4 (0,1,2).</td></tr>
+</table>
+<p>A regra 8 (<code>ol&gt;li.churras#lip5</code>) não se aplica a ninguém, pois nenhum item tem <code>id="lip5"</code>. A regra 6 também não afeta o item 2 nem o 6 e o 7, que não têm id.</p>
+<h3>Referências</h3>
+<p>MDN Web Docs. <em>Specificity</em>. Mozilla, 2025. https://developer.mozilla.org/pt-BR/docs/Web/CSS/Specificity</p>
+</div>
+</body>
+</html>

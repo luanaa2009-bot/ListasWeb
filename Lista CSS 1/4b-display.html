@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4b – position relative e absolute</title>
+<style>
+  body{font-family:Arial,sans-serif;max-width:800px;margin:1rem auto;padding:0 1rem}
+  .pai{position:relative;height:220px;background:#eee;border:2px solid #333;margin-bottom:1rem}
+  .filho{width:90px;height:60px;color:#fff;padding:4px}
+  .estatico{position:static;background:#457b9d}
+  .relativo{position:relative;top:20px;left:40px;background:#e63946}
+  .absoluto{position:absolute;bottom:10px;right:10px;background:#2a9d8f}
+  .depois{background:#6a4c93}
+</style>
+</head>
+<body>
+<h1>position: static, relative e absolute</h1>
+<div class="pai">
+  <div class="filho estatico">static</div>
+  <div class="filho relativo">relative</div>
+  <div class="filho absoluto">absolute</div>
+  <div class="filho depois">normal</div>
+</div>
+<h2>Explicação</h2>
+<p><b>static</b> é o padrão: o elemento segue o fluxo normal e ignora top, left, etc.</p>
+<p><b>relative:</b> o elemento continua reservando seu espaço original no fluxo, mas é deslocado visualmente a partir dessa posição (20px para baixo e 40px para a direita). Por isso o quadro roxo ("normal") fica onde ficaria se o vermelho não tivesse sido movido.</p>
+<p><b>absolute:</b> sai do fluxo (não ocupa espaço) e é posicionado em relação ao ancestral posicionado mais próximo. Como o pai tem position: relative, o quadro verde vai para o canto inferior direito do pai. Sem isso, ele usaria a página como referência.</p>
+<p>Referência: MDN Web Docs. <em>position</em>. 2025. https://developer.mozilla.org/pt-BR/docs/Web/CSS/position</p>
+</body>
+</html>

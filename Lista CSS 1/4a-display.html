@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4a – display</title>
+<style>
+  body{font-family:Arial,sans-serif;max-width:800px;margin:1rem auto;padding:0 1rem}
+  .caixa{padding:10px;margin:6px 0;color:#fff}
+  .b{display:block;background:#1d3557}
+  .i{display:inline;background:#2a9d8f;width:300px;height:80px;padding:10px;margin:20px}
+  .ib{display:inline-block;background:#e76f51;width:150px;height:60px}
+  .n{display:none;background:#000}
+</style>
+</head>
+<body>
+<h1>display: block, inline, inline-block e none</h1>
+<div class="caixa b">display:block – ocupa a linha toda</div>
+<div class="caixa b">outro block – fica embaixo do anterior</div>
+<span class="caixa i">inline 1</span><span class="caixa i">inline 2</span>
+<div class="caixa ib">inline-block 1</div><div class="caixa ib">inline-block 2</div>
+<div class="caixa n">Este elemento não aparece</div>
+<h2>Explicação</h2>
+<p><b>block:</b> ocupa toda a largura disponível e quebra a linha antes e depois; aceita width, height, margin e padding em todos os lados.</p>
+<p><b>inline:</b> fica na linha do texto, com o tamanho do conteúdo. width e height são ignorados e margens verticais não afetam o layout. Por isso os dois "inline" ficam lado a lado e sem 300x80.</p>
+<p><b>inline-block:</b> fica na mesma linha como o inline, mas aceita width e height como o block. Os dois quadros laranja aparecem lado a lado com 150x60.</p>
+<p><b>none:</b> remove o elemento do fluxo e da tela; ele não ocupa espaço.</p>
+<p>Referência: MDN Web Docs. <em>display</em>. 2025. https://developer.mozilla.org/pt-BR/docs/Web/CSS/display</p>
+</body>
+</html>
