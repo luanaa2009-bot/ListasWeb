@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Aritmética</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .calculadora {
+            width: 208px;
+            padding: 0;
+            background-color: #9bd0d9;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .visor {
+            width: 100%;
+            height: 62px;
+            background-color: #222;
+            color: white;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px;
+            font-size: 25px;
+        }
+
+        .botoes {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        button {
+            height: 30px;
+            border: 1px solid #ccc;
+            background-color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .operador {
+            background-color: #eee;
+        }
+
+        .igual {
+            grid-column: 4;
+            grid-row: 2 / 6;
+            height: 120px;
+            background-color: coral;
+        }
+
+        .igual:hover {
+            background-color: #f07850;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calculadora">
+
+        <div class="visor" id="visor">0</div>
+
+        <div class="botoes">
+
+            <button class="operador" onclick="operacao('+')">+</button>
+            <button class="operador" onclick="operacao('-')">-</button>
+            <button class="operador" onclick="operacao('*')">×</button>
+            <button class="operador" onclick="operacao('/')">÷</button>
+
+            <button onclick="numero('7')">7</button>
+            <button onclick="numero('8')">8</button>
+            <button onclick="numero('9')">9</button>
+
+            <button class="igual" onclick="calcular()">=</button>
+
+            <button onclick="numero('4')">4</button>
+            <button onclick="numero('5')">5</button>
+            <button onclick="numero('6')">6</button>
+
+            <button onclick="numero('1')">1</button>
+            <button onclick="numero('2')">2</button>
+            <button onclick="numero('3')">3</button>
+
+            <button onclick="numero('0')">0</button>
+            <button onclick="numero('.')">.</button>
+            <button onclick="limpar()">AC</button>
+
+        </div>
+    </div>
+
+    <script>
+        let valorAtual = "0";
+        let valorAnterior = null;
+        let operador = null;
+        let novoNumero = false;
+
+        const visor = document.getElementById("visor");
+
+        function atualizarVisor() {
+            visor.textContent = valorAtual;
+        }
+
+        function numero(valor) {
+
+            if (novoNumero) {
+                valorAtual = valor === "." ? "0." : valor;
+                novoNumero = false;
+            } else if (valor === "." && valorAtual.includes(".")) {
+                return;
+            } else {
+                valorAtual = valorAtual === "0" && valor !== "."
+                    ? valor
+                    : valorAtual + valor;
+            }
+
+            atualizarVisor();
+        }
+
+        function operacao(op) {
+            valorAnterior = parseFloat(valorAtual);
+            operador = op;
+            novoNumero = true;
+        }
+
+        function calcular() {
+
+            if (operador === null) return;
+
+            let segundoValor = parseFloat(valorAtual);
+            let resultado;
+
+            switch (operador) {
+                case "+":
+                    resultado = valorAnterior + segundoValor;
+                    break;
+
+                case "-":
+                    resultado = valorAnterior - segundoValor;
+                    break;
+
+                case "*":
+                    resultado = valorAnterior * segundoValor;
+                    break;
+
+                case "/":
+                    if (segundoValor === 0) {
+                        valorAtual = "Erro";
+                        atualizarVisor();
+                        operador = null;
+                        novoNumero = true;
+                        return;
+                    }
+
+                    resultado = valorAnterior / segundoValor;
+                    break;
+            }
+
+            valorAtual = String(resultado);
+            operador = null;
+            novoNumero = true;
+
+            atualizarVisor();
+        }
+
+        function limpar() {
+            valorAtual = "0";
+            valorAnterior = null;
+            operador = null;
+            novoNumero = false;
+
+            atualizarVisor();
+        }
+    </script>
+
+</body>
+</html>

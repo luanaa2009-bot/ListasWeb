@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captura de Teclas do Teclado</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: white;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #saida {
+            width: 400px;
+            min-height: 100px;
+            padding: 15px;
+            border: 1px solid black;
+            border-radius: 8px;
+            background-color: #f0f0f0;
+            font-size: 20px;
+            overflow-wrap: break-word;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Captura de Teclas do Teclado</h1>
+
+    <div id="saida"></div>
+
+    <script>
+
+        // Selecionar a div de saída
+        const saida = document.getElementById("saida");
+
+        // Capturar as teclas pressionadas
+        document.addEventListener("keydown", function(event) {
+
+            // Registrar a tecla no console
+            console.log(event.key);
+
+            // Se pressionar Backspace, apagar o último caractere
+            if (event.key === "Backspace") {
+                saida.textContent = saida.textContent.slice(0, -1);
+            }
+
+            // Ignorar teclas que não representam caracteres
+            else if (event.key.length === 1) {
+                saida.textContent += event.key;
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title id="tituloaba">Alteração de Cores</title>
+</head>
+
+<body id="corpo" align="center"
+      style="display:flex; flex-direction:column; justify-content:center; align-items:center; min-height:100vh; margin:0;">
+
+    <h1 id="titulo">Alteração de Cores com Tecla de Espaço</h1>
+
+    <p id="texto">
+        Pressione a tecla ESPAÇO para mudar as cores da página!
+    </p>
+
+    <h2 id="subtitulo">Experimente!</h2>
+
+    <p id="mensagem">
+        Cada vez que você pressionar espaço, uma nova combinação de cores aparecerá.
+    </p>
+
+    <button id="botao" onclick="alterarCores()">
+        Alterar Cores
+    </button>
+
+    <script id="codigo">
+
+        // Função para gerar uma cor aleatória
+        function gerarCor() {
+
+            return "#" + Math.floor(Math.random() * 16777215)
+                .toString(16)
+                .padStart(6, "0");
+
+        }
+
+        // Função para alterar as cores
+        function alterarCores() {
+
+            document.body.style.backgroundColor = gerarCor();
+
+            document.getElementById("titulo").style.color = gerarCor();
+
+            document.getElementById("texto").style.color = gerarCor();
+
+            document.getElementById("subtitulo").style.color = gerarCor();
+
+            document.getElementById("mensagem").style.color = gerarCor();
+
+            document.getElementById("botao").style.backgroundColor = gerarCor();
+
+            document.getElementById("botao").style.color = gerarCor();
+
+            console.log("As cores foram alteradas!");
+
+        }
+
+        // Detectar quando uma tecla é pressionada
+        document.addEventListener("keydown", function(event) {
+
+            if (event.code === "Space") {
+
+                event.preventDefault();
+
+                alterarCores();
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

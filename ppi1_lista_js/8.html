@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title id="tituloaba">Mudança de Cor de Fundo</title>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+
+</head>
+<body align="center" id="corpo">
+
+    <h1 id="titulo">Mudança de Cor de Fundo</h1>
+
+    <p id="texto">
+        Clique no botão para mudar a cor de fundo da página!
+    </p>
+
+    <button id="botao" onclick="mudarCor()">
+        Mudar Cor
+    </button>
+
+    <h2 id="subtitulo">Cor atual:</h2>
+
+    <p id="resultado">#FFFFFF</p>
+
+    <button id="botaoCopiar" onclick="copiarCor()">
+        Copiar cor
+    </button>
+
+    <script id="codigo">
+
+        function mudarCor() {
+
+            let cor = "#" + Math.floor(Math.random() * 16777215)
+                .toString(16)
+                .padStart(6, "0");
+
+            document.body.style.backgroundColor = cor;
+
+            document.getElementById("resultado").innerText = cor;
+
+            console.log("Nova cor:", cor);
+
+        }
+
+        function copiarCor() {
+
+            let cor = document.getElementById("resultado").innerText;
+
+            navigator.clipboard.writeText(cor)
+                .then(function() {
+
+                    alert("Cor copiada: " + cor);
+
+                })
+                .catch(function() {
+
+                    alert("Não foi possível copiar a cor.");
+
+                });
+
+        }
+
+    </script>
+
+</body>
+</html>
+

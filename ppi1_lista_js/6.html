@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title id="tituloaba">Números Primos</title>
+</head>
+<body align="center">
+
+    <h1 id="titulo">Números Primos em um Intervalo</h1>
+
+    <p id="texto">
+        Digite o número inicial e o número final para encontrar
+        todos os números primos dentro desse intervalo.
+    </p>
+
+    <label id="labelInicio" for="inicio">Número inicial:</label>
+    <input type="number" id="inicio">
+
+    <br><br>
+
+    <label id="labelFim" for="fim">Número final:</label>
+    <input type="number" id="fim">
+
+    <br><br>
+
+    <button id="botao" onclick="verificar()">Verificar</button>
+
+    <h2 id="subtitulo">Resultado</h2>
+
+    <div id="resultadoPrimos"></div>
+
+    <script id="codigo">
+
+        // Função para verificar se um número é primo
+        function ehPrimo(n) {
+
+            if (n < 2) {
+                return false;
+            }
+
+            for (let i = 2; i <= Math.sqrt(n); i++) {
+
+                if (n % i === 0) {
+                    return false;
+                }
+
+            }
+
+            return true;
+        }
+
+        // Função principal
+        function verificar() {
+
+            // Ler os valores dos campos
+            let inicio = document.getElementById("inicio").value;
+            let fim = document.getElementById("fim").value;
+
+            // Verificar se os campos foram preenchidos
+            if (inicio === "" || fim === "") {
+
+                alert("Preencha os dois campos!");
+                return;
+            }
+
+            // Converter os valores para números inteiros
+            inicio = parseInt(inicio);
+            fim = parseInt(fim);
+
+            // Verificar se os valores são válidos
+            if (!Number.isSafeInteger(inicio) ||
+                !Number.isSafeInteger(fim)) {
+
+                alert("Digite números inteiros válidos!");
+                return;
+            }
+
+            // Normalizar o intervalo
+            if (inicio > fim) {
+
+                let auxiliar = inicio;
+                inicio = fim;
+                fim = auxiliar;
+
+            }
+
+            // Array para armazenar os números primos
+            let primos = [];
+
+            // Percorrer todos os números do intervalo
+            for (let n = inicio; n <= fim; n++) {
+
+                if (ehPrimo(n)) {
+
+                    primos.push(n);
+
+                }
+
+            }
+
+            // Exibir os resultados
+            let resultado = document.getElementById("resultadoPrimos");
+
+            if (primos.length > 0) {
+
+                resultado.innerText =
+                 + primos.join(", ");
+
+            } else {
+
+                resultado.innerText =
+                    "Nenhum número primo encontrado nesse intervalo.";
+
+            }
+
+            // Mostrar no console
+            console.log("Intervalo:", inicio, "até", fim);
+            console.log("Números primos:", primos);
+
+        }
+
+    </script>
+
+</body>
+</html>

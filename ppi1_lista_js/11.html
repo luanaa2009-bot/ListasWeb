@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorando Eventos em JavaScript</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            gap: 20px;
+            background-color: white;
+        }
+
+        button, input, select {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        #hoverDiv {
+            width: 200px;
+            padding: 30px;
+            text-align: center;
+            background-color: lightgray;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="alertButton">Clique aqui</button>
+
+    <input type="text" id="textInput" placeholder="Digite algo">
+
+    <div id="hoverDiv">Passe o mouse aqui</div>
+
+    <select id="colorSelect">
+        <option value="">Escolha uma cor</option>
+        <option value="blue">Azul</option>
+        <option value="green">Verde</option>
+        <option value="red">Vermelho</option>
+    </select>
+
+    <script>
+
+        // A) Evento de clique no botão
+        const alertButton = document.getElementById("alertButton");
+
+        alertButton.addEventListener("click", function() {
+            alert("Você clicou no botão!");
+        });
+
+
+        // B), C) e D) Eventos do campo de texto
+        const textInput = document.getElementById("textInput");
+
+        // B) Mostrar cada tecla no console
+        textInput.addEventListener("keydown", function(event) {
+            console.log(event.key);
+        });
+
+        // C) Mudar a cor ao focar
+        textInput.addEventListener("focus", function() {
+            textInput.style.backgroundColor = "yellow";
+        });
+
+        // D) Restaurar a cor ao sair do campo
+        textInput.addEventListener("blur", function() {
+            textInput.style.backgroundColor = "white";
+        });
+
+
+        // E) e F) Eventos do mouse na div
+        const hoverDiv = document.getElementById("hoverDiv");
+
+        // E) Mudar a cor quando o mouse passar
+        hoverDiv.addEventListener("mouseover", function() {
+            hoverDiv.style.backgroundColor = "lightblue";
+        });
+
+        // F) Restaurar a cor quando o mouse sair
+        hoverDiv.addEventListener("mouseout", function() {
+            hoverDiv.style.backgroundColor = "lightgray";
+        });
+
+
+        // G) Alterar a cor de fundo da página
+        const colorSelect = document.getElementById("colorSelect");
+
+        colorSelect.addEventListener("change", function() {
+            document.body.style.backgroundColor = colorSelect.value;
+        });
+
+    </script>
+
+</body>
+</html>

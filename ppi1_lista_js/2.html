@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title id="tituloaba">Tipos de Variáveis e Operadores</title>
+</head>
+<body align="center">
+
+    <h1 id="titulo">Tipos de Variáveis e Operadores</h1>
+
+    <p id="introducao">
+        Clique no botão abaixo para visualizar os tipos de variáveis
+        e os resultados das operações entre diferentes tipos.
+    </p>
+
+    <button id="botao" onclick="executar()">Executar JavaScript</button>
+
+    <h2 id="subtitulo1">Tipos de variáveis</h2>
+
+    <p id="pstring"></p>
+    <p id="pnumero"></p>
+    <p id="pboolean"></p>
+    <p id="pundefined"></p>
+    <p id="pnull"></p>
+    <p id="pobjeto"></p>
+    <p id="parray"></p>
+
+    <h2 id="subtitulo2">Operações entre tipos diferentes</h2>
+
+    <p id="operacao1"></p>
+    <p id="operacao2"></p>
+    <p id="operacao3"></p>
+    <p id="operacao4"></p>
+
+    <script id="codigo">
+
+        function executar() {
+
+            // Declaração das variáveis
+            let nome = "Maria";
+            let numero = 10;
+            let booleano = true;
+            let indefinido;
+            let vazio = null;
+            let objeto = { cidade: "Gaspar" };
+            let array = [1, 2, 3];
+
+            // Exibição dos tipos das variáveis
+            document.getElementById("pstring").innerText =
+                "String: " + nome + " | Tipo: " + typeof nome;
+
+            document.getElementById("pnumero").innerText =
+                "Number: " + numero + " | Tipo: " + typeof numero;
+
+            document.getElementById("pboolean").innerText =
+                "Boolean: " + booleano + " | Tipo: " + typeof booleano;
+
+            document.getElementById("pundefined").innerText =
+                "Undefined: " + indefinido + " | Tipo: " + typeof indefinido;
+
+            document.getElementById("pnull").innerText =
+                "Null: " + vazio + " | Tipo: " + typeof vazio;
+
+            document.getElementById("pobjeto").innerText =
+                "Object: " + JSON.stringify(objeto) + " | Tipo: " + typeof objeto;
+
+            document.getElementById("parray").innerText =
+                "Array: " + array + " | Tipo: " + typeof array;
+
+            // Operações entre tipos diferentes
+            let resultado1 = "Olá " + 10;
+            let resultado2 = true * 5;
+            let resultado3 = "20" - 5;
+            let resultado4 = "10" + true;
+
+            // Exibição dos resultados na página
+            document.getElementById("operacao1").innerText =
+                '"Olá " + 10 = ' + resultado1 +
+                " (O JavaScript transforma o número em texto e junta os valores).";
+
+            document.getElementById("operacao2").innerText =
+                "true * 5 = " + resultado2 +
+                " (O valor true é convertido em 1, então o resultado é 5).";
+
+            document.getElementById("operacao3").innerText =
+                '"20" - 5 = ' + resultado3 +
+                " (O texto numérico é convertido em número para realizar a subtração).";
+
+            document.getElementById("operacao4").innerText =
+                '"10" + true = ' + resultado4 +
+                " (O operador + concatena os valores como texto).";
+
+            // Exibição no console
+            console.log("Operações entre tipos diferentes:");
+            console.log('"Olá " + 10 =', resultado1);
+            console.log("true * 5 =", resultado2);
+            console.log('"20" - 5 =', resultado3);
+            console.log('"10" + true =', resultado4);
+
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title id="tituloaba">Sorteio de Números</title>
+</head>
+<body align="center">
+
+    <h1 id="titulo">Sorteio de Números</h1>
+
+    <p id="texto">Informe o intervalo para realizar o sorteio:</p>
+
+    <label id="labelMinimo" for="minimo">Valor mínimo:</label>
+    <input type="number" id="minimo">
+
+    <br><br>
+
+    <label id="labelMaximo" for="maximo">Valor máximo:</label>
+    <input type="number" id="maximo">
+
+    <br><br>
+
+    <button id="botao" onclick="sortear()">Sortear</button>
+
+    <h2 id="subtitulo">Resultado do sorteio</h2>
+
+    <p id="resultado"></p>
+
+    <h2 id="subtituloLista">Números sorteados</h2>
+
+    <ul id="lista"></ul>
+
+    <script id="codigo">
+
+        // Array para armazenar os números sorteados
+        let numerosSorteados = [];
+
+        function sortear() {
+
+            // Ler os valores informados
+            let minimo = parseInt(document.getElementById("minimo").value);
+            let maximo = parseInt(document.getElementById("maximo").value);
+
+            // Verificar se os campos foram preenchidos
+            if (document.getElementById("minimo").value === "" ||
+                document.getElementById("maximo").value === "") {
+
+                alert("Preencha os dois campos!");
+                return;
+            }
+
+            // Verificar se o intervalo é válido
+            if (minimo > maximo) {
+
+                alert("O valor mínimo não pode ser maior que o máximo!");
+                return;
+            }
+
+            // Gerar número aleatório entre mínimo e máximo
+            let numero = Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
+
+            // Procurar se o número já existe no array
+            let encontrado = numerosSorteados.find(item => item.numero === numero);
+
+            if (encontrado) {
+
+                // Se já existe, aumentar a quantidade
+                encontrado.quantidade++;
+
+            } else {
+
+                // Se não existe, adicionar ao array
+                numerosSorteados.push({
+                    numero: numero,
+                    quantidade: 1
+                });
+
+            }
+
+            // Mostrar o resultado do sorteio
+            document.getElementById("resultado").innerText =
+                "Número sorteado: " + numero;
+
+            // Atualizar a lista na página
+            let lista = document.getElementById("lista");
+
+            lista.innerHTML = "";
+
+            numerosSorteados.forEach(function(item) {
+
+                let li = document.createElement("li");
+
+                li.innerText = item.numero +
+                    " - Sorteado " + item.quantidade + " vez(es)";
+
+                lista.appendChild(li);
+
+            });
+
+            // Mostrar os dados no console
+            console.log("Números sorteados:", numerosSorteados);
+
+
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title id="tituloaba">Verificador de Palíndromos</title>
+</head>
+<body align="center">
+
+    <h1 id="titulo">Verificador de Palíndromos</h1>
+
+    <p id="texto">
+        Digite uma palavra para verificar se ela é um palíndromo:
+    </p>
+
+    <label id="labelPalavra" for="palavra">Digite uma palavra:</label>
+    <input type="text" id="palavra">
+
+    <br><br>
+
+    <button id="botao" onclick="verificar()">Verificar</button>
+
+    <h2 id="subtitulo">Resultado</h2>
+
+    <p id="resultado"></p>
+
+    <script id="codigo">
+
+        function verificar() {
+
+            // Ler a palavra digitada
+            let palavra = document.getElementById("palavra").value;
+
+            // Verificar se o campo está vazio
+            if (palavra.trim() === "") {
+
+                alert("Digite uma palavra!");
+                return;
+
+            }
+
+            // Converter para letras minúsculas
+            let palavraOriginal = palavra.toLowerCase();
+
+            // Inverter a palavra
+            let palavraInvertida = palavraOriginal
+                .split("")
+                .reverse()
+                .join("");
+
+            // Comparar a palavra original com a invertida
+            if (palavraOriginal === palavraInvertida) {
+
+                document.getElementById("resultado").innerText =
+                    palavra + " é um palíndromo!";
+
+            } else {
+
+                document.getElementById("resultado").innerText =
+                    palavra + " não é um palíndromo!";
+
+            }
+
+            // Mostrar no console
+            console.log("Palavra:", palavraOriginal);
+            console.log("Palavra invertida:", palavraInvertida);
+
+        }
+
+    </script>
+
+</body>
+</html>

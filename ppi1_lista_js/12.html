@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            gap: 15px;
+            background-color: white;
+        }
+
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        #greeting {
+            font-size: 20px;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="text" id="nameInput" placeholder="Digite seu nome">
+
+    <button id="saveButton">Salvar</button>
+
+    <p id="greeting"></p>
+
+    <script>
+
+        // Selecionar os elementos HTML
+        const nameInput = document.getElementById("nameInput");
+        const saveButton = document.getElementById("saveButton");
+        const greeting = document.getElementById("greeting");
+
+
+        // Recuperar o nome salvo ao abrir a página
+        const nomeSalvo = localStorage.getItem("nome");
+
+        if (nomeSalvo) {
+            greeting.textContent = "Olá, " + nomeSalvo + "!";
+            nameInput.value = nomeSalvo;
+        }
+
+
+        // Salvar o nome quando clicar no botão
+        saveButton.addEventListener("click", function() {
+
+            const nome = nameInput.value;
+
+            if (nome.trim() !== "") {
+
+                // Salvar no Local Storage
+                localStorage.setItem("nome", nome);
+
+                // Exibir mensagem
+                greeting.textContent = "Olá, " + nome + "!";
+
+            } else {
+                greeting.textContent = "Digite um nome primeiro!";
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
